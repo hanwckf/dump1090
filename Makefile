@@ -1,6 +1,6 @@
-CFLAGS?=-O2 -g -Wall -W $(shell pkg-config --cflags librtlsdr)
-LDLIBS+=$(shell pkg-config --libs librtlsdr) -lpthread -lm
-CC?=gcc
+CFLAGS += $(shell PKG_CONFIG_PATH=$(STAGEDIR)/lib/pkgconfig/ pkg-config --cflags librtlsdr)
+LDLIBS += $(shell PKG_CONFIG_PATH=$(STAGEDIR)/lib/pkgconfig/ pkg-config --libs librtlsdr) -lpthread -lm
+
 PROGNAME=dump1090
 
 all: dump1090
